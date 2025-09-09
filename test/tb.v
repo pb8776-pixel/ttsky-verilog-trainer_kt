@@ -1,7 +1,7 @@
 `default_nettype none
 `timescale 1ns/1ps
 
-module tb_tt_um_digital_gates;
+module tb ();
 
     // DUT signals
     reg  [7:0] ui_in;
