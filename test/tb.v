@@ -1,6 +1,6 @@
 `default_nettype none
 `timescale 1ns/1ps
-module tb_digital_gates;
+module tb ();
 
     reg a, b;
     wire and_out, or_out, not_out_a, not_out_b, nand_out, nor_out, xor_out, xnor_out;
