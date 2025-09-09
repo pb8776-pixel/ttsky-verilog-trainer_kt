@@ -5,28 +5,32 @@
 
 `default_nettype none
 
-// Digital Trainer Kit - All Basic Gates
 module tt_um_digital_gates (
-    input  wire a, b,
-    output wire and_out,
-    output wire or_out,
-    output wire not_out_a,
-    output wire not_out_b,
-    output wire nand_out,
-    output wire nor_out,
-    output wire xor_out,
-    output wire xnor_out
+    input  wire clk,      
+    input  wire rst_n,    
+    input  wire [7:0] ui_in,   
+    output wire [7:0] uo_out,  
+    input  wire [7:0] uio_in,  
+    output wire [7:0] uio_out, 
+    output wire [7:0] uio_oe   
 );
 
-    // Gate-level modeling
-    assign and_out  = a & b;
-    assign or_out   = a | b;
-    assign not_out_a = ~a;
-    assign not_out_b = ~b;
-    assign nand_out = ~(a & b);
-    assign nor_out  = ~(a | b);
-    assign xor_out  = a ^ b;
-    assign xnor_out = ~(a ^ b);
+    // Two input bits for gates
+    wire a = ui_in[0];
+    wire b = ui_in[1];
+
+    // Map different logic gates to outputs
+    assign uo_out[0] = a & b;   // AND
+    assign uo_out[1] = a | b;   // OR
+    assign uo_out[2] = a ^ b;   // XOR
+    assign uo_out[3] = ~(a & b); // NAND
+    assign uo_out[4] = ~(a | b); // NOR
+    assign uo_out[5] = ~(a ^ b); // XNOR
+    assign uo_out[6] = ~a;       // NOT of A
+    assign uo_out[7] = ~b;       // NOT of B
+
+    // IOs unused
+    assign uio_out = 8'b0;
+    assign uio_oe  = 8'b0;
 
 endmodule
-
