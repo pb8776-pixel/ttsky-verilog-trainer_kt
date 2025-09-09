@@ -14,7 +14,7 @@ module tb ();
     reg rst_n;
 
     // Instantiate DUT
-    tt_um_digital_gates dut (
+    tt_um_digital_gates user_project (
         .ui_in(ui_in),
         .uo_out(uo_out),
         .uio_in(uio_in),
@@ -29,7 +29,7 @@ module tb ();
     always #5 clk = ~clk;
 
     initial begin
-        $dumpfile("tb_tt_um_digital_gates.vcd");
+        $dumpfile("tb.vcd");
         $dumpvars(0, tb_tt_um_digital_gates);
 
         // Initialize signals
