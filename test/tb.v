@@ -30,7 +30,7 @@ module tb ();
 
     initial begin
         $dumpfile("tb.vcd");
-        $dumpvars(0, tb_tt_um_digital_gates);
+        $dumpvars(0, tb);
 
         // Initialize signals
         clk    = 0;
